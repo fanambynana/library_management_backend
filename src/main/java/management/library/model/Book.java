@@ -13,5 +13,5 @@ public class Book {
     private String bookName;
     private String pageNumber;
     private LocalDate releaseDate;
-    private static List<Topic> topic;
+    private List<Topic> topic;
 }
