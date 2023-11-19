@@ -53,4 +53,21 @@ public class BookRepository {
         }
         return this.findAll();
     }
+
+    public Book save(Book toSave) {
+        try {
+            String saveRequest = """
+                    INSERT INTO book(book_name, page_number, release_date, topic)
+                    VALUES(?, ?, ?, ?);
+                """;
+            PreparedStatement allStatement = connection.prepareStatement(saveRequest);
+            allStatement.setString(1, toSave.getBookName());
+            allStatement.setInt(2, toSave.getPageNumber());
+            allStatement.setDate(3, Date.valueOf(toSave.getReleaseDate()));
+            allStatement.setObject(4, toSave.getTopic());
+        } catch (SQLException exception) {
+            System.out.println("Error while saving books :\n" + exception.getMessage());
+        }
+        return toSave;
+    }
 }
