@@ -70,4 +70,19 @@ public class BookRepository {
         }
         return toSave;
     }
+
+    public Book delete(Book toDelete) {
+        try {
+            String saveRequest = """
+                    DELETE FROM book
+                    WHERE (id = ? AND book_name = ?);
+                """;
+            PreparedStatement allStatement = connection.prepareStatement(saveRequest);
+            allStatement.setString(1, toDelete.getId());
+            allStatement.setString(2, toDelete.getBookName());
+        } catch (SQLException exception) {
+            System.out.println("Error while deleting book :\n" + exception.getMessage());
+        }
+        return toDelete;
+    }
 }

@@ -22,6 +22,6 @@ public class BookCrudOperations implements CrudOperations<Book>{
     }
     @Override
     public Book delete(Book toDelete) {
-        return bookRepository.delete();
+        return bookRepository.delete(toDelete);
     }
 }
