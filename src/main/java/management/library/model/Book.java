@@ -1,10 +1,12 @@
 package management.library.model;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public class Book {
     private String id;
     private String bookName;
     private String pageNumber;
-    private String releaseDate;
-    private Topic topic;
-    private Author author;
+    private LocalDate releaseDate;
+    private static List<Topic> topic;
 }
