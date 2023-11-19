@@ -1,27 +1,27 @@
-package management.library;
+package management.library.crud;
 
 import management.library.model.Book;
+import management.library.repository.BookRepository;
 
 import java.util.List;
 
 public class BookCrudOperations implements CrudOperations<Book>{
+    BookRepository bookRepository = new BookRepository();
+
     @Override
     public List<Book> findAll() {
-        return null;
+        return bookRepository.findAll();
     }
-
     @Override
     public List<Book> saveAll(List<Book> toSave) {
-        return null;
+        return bookRepository.saveAll();
     }
-
     @Override
     public Book save(Book toSave) {
-        return null;
+        return bookRepository.save();
     }
-
     @Override
     public Book delete(Book toDelete) {
-        return null;
+        return bookRepository.delete();
     }
 }
