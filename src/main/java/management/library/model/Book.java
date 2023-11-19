@@ -11,7 +11,7 @@ import java.util.List;
 public class Book {
     private String id;
     private String bookName;
-    private String pageNumber;
+    private int pageNumber;
     private LocalDate releaseDate;
     private List<Topic> topic;
 }
