@@ -4,20 +4,14 @@ import management.library.bdConnection.DbConnect;
 import management.library.model.Book;
 import management.library.model.Topic;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class BookRepository {
     DbConnect dbConnect = new DbConnect();
     Connection connection = dbConnect.createConnection();
-
 
     public List<Book> findAll() {
         List<Book> bookList = new ArrayList<>();
@@ -39,5 +33,24 @@ public class BookRepository {
             System.out.println("Error while finding all books :\n" + exception.getMessage());
         }
         return bookList;
+    }
+
+    public List<Book> saveAll(List<Book> toSave) {
+        for (Book book : toSave) {
+            try {
+                String allRequest = """
+                    INSERT INTO book(book_name, page_number, release_date, topic)
+                    VALUES(?, ?, ?, ?);
+                """;
+                PreparedStatement allStatement = connection.prepareStatement(allRequest);
+                allStatement.setString(1, book.getBookName());
+                allStatement.setInt(2, book.getPageNumber());
+                allStatement.setDate(3, Date.valueOf(book.getReleaseDate()));
+                allStatement.setObject(4, book.getTopic());
+            } catch (SQLException exception) {
+                System.out.println("Error while saving books :\n" + exception.getMessage());
+            }
+        }
+        return this.findAll();
     }
 }

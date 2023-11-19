@@ -14,11 +14,11 @@ public class BookCrudOperations implements CrudOperations<Book>{
     }
     @Override
     public List<Book> saveAll(List<Book> toSave) {
-        return bookRepository.saveAll();
+        return bookRepository.saveAll(toSave);
     }
     @Override
     public Book save(Book toSave) {
-        return bookRepository.save();
+        return bookRepository.save(toSave);
     }
     @Override
     public Book delete(Book toDelete) {
