@@ -5,4 +5,5 @@ public class Book {
     private String bookName;
     private String pageNumber;
     private String releaseDate;
+    private Topic topic;
 }
