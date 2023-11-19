@@ -6,4 +6,5 @@ public class Book {
     private String pageNumber;
     private String releaseDate;
     private Topic topic;
+    private Author author;
 }
