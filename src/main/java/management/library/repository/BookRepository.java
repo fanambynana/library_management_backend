@@ -1,6 +1,6 @@
 package management.library.repository;
 
-import management.library.bdConnection.DbConnect;
+import management.library.dbConnection.DbConnect;
 import management.library.model.Book;
 import management.library.model.Topic;
 

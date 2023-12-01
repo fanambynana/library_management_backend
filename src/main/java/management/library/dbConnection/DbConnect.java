@@ -1,4 +1,4 @@
-package management.library.bdConnection;
+package management.library.dbConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
